@@ -1,0 +1,93 @@
+:root {
+  --color-primary: #f00;
+  --color-secondary: #0f0;
+  --color-tertiary: #00f;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.navbar {
+  min-height: 70px;
+  font-weight: 700;
+}
+
+.container-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 80%;
+}
+
+#catalog-section {
+  position: relative;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.card-text-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  top: 50%;
+  left: 12%;
+  position: absolute;
+}
+
+#discount {
+  position: absolute;
+  font-size: 0.7rem;
+  left: 10%;
+  top: 75%;
+  color: grey;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+/* animation */
+#login-animation-container {
+  width: 30px;
+}
+
+/* .error {
+  display: none;
+} */
+
+@keyframes animation {
+  0% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -105;
+  }
+  50% {
+    stroke-dasharray: 80 10;
+    stroke-dashoffset: -160;
+  }
+  100% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -300;
+  }
+}
+
+#spinner {
+  transform-origin: center;
+  animation-name: animation;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier;
+  animation-iteration-count: infinite;
+}
