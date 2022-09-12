@@ -172,3 +172,5 @@ getProducts().then(() => {
   cards.appendChild(fragment);
 });
 ```
+# License
+<a href="https://github.com/BrainerVirus/online-shop-front-end/blob/main/LICENSE.MD">MIT</a>
