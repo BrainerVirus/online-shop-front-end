@@ -1,6 +1,5 @@
 //data retrivers
 let products = [];
-// document.getElementById(".error").style.display = "none";
 
 const getProducts = async (condition = "") => {
   cleanChildNodes(cards);
@@ -29,8 +28,6 @@ const getProductsOnInputChange = async (searchInput = "") => {
       products = response.data.products;
     })
     .catch((error) => {
-      // document.getElementById("error-mssg").classList.remove("hide");
-      // document.getElementById("error-mssg").classList.add("show");
       swal("Error!", "No se han encontrado coincidencias", "error");
     });
 };
@@ -125,9 +122,6 @@ const categoryTextToCondition = (text) => {
 };
 //Child node cleaner
 const cleanChildNodes = (node) => {
-  // while (node.firstChild) {
-  //   node.removeChild(node.firstChild);
-  // }
   cards.textContent = "";
 };
 
@@ -162,19 +156,7 @@ getProducts().then(() => {
   cards.appendChild(fragment);
 });
 
-// //handle input search
-// const searchInput = document.getElementById("search-input");
-// searchInput.addEventListener("input", (e) => {
-//   const searchCondition = e.target.value;
-//   cleanChildNodes(cards);
-//   if (!searchCondition) {
-//     cleanChildNodes(cards);
-//     refreshData((condition = ""));
-//   } else {
-//     cleanChildNodes(cards);
-//     refreshDataOnInputChange(searchCondition);
-//   }
-// });
+//handle input search
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
