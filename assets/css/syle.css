@@ -65,9 +65,13 @@ main {
   width: 30px;
 }
 
-/* .error {
+.hide {
   display: none;
-} */
+}
+
+.show {
+  display: block;
+}
 
 @keyframes animation {
   0% {

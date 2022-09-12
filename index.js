@@ -1,5 +1,6 @@
 //data retrivers
 let products = [];
+// document.getElementById(".error").style.display = "none";
 
 const getProducts = async (condition = "") => {
   cleanChildNodes(cards);
@@ -12,7 +13,9 @@ const getProducts = async (condition = "") => {
     .then((response) => {
       products = response.data.products;
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      swal("Error!", "No se han encontrado coincidencias", "error");
+    });
 };
 
 const getProductsOnInputChange = async (searchInput = "") => {
@@ -25,9 +28,11 @@ const getProductsOnInputChange = async (searchInput = "") => {
     .then((response) => {
       products = response.data.products;
     })
-    .catch(
-      (error) => (document.getElementById("error").style.display = "block")
-    );
+    .catch((error) => {
+      // document.getElementById("error-mssg").classList.remove("hide");
+      // document.getElementById("error-mssg").classList.add("show");
+      swal("Error!", "No se han encontrado coincidencias", "error");
+    });
 };
 
 //handle click events on nav links
@@ -157,19 +162,19 @@ getProducts().then(() => {
   cards.appendChild(fragment);
 });
 
-//handle input search
-const searchInput = document.getElementById("search-input");
-searchInput.addEventListener("input", (e) => {
-  const searchCondition = e.target.value;
-  cleanChildNodes(cards);
-  if (!searchCondition) {
-    cleanChildNodes(cards);
-    refreshData((condition = ""));
-  } else {
-    cleanChildNodes(cards);
-    refreshDataOnInputChange(searchCondition);
-  }
-});
+// //handle input search
+// const searchInput = document.getElementById("search-input");
+// searchInput.addEventListener("input", (e) => {
+//   const searchCondition = e.target.value;
+//   cleanChildNodes(cards);
+//   if (!searchCondition) {
+//     cleanChildNodes(cards);
+//     refreshData((condition = ""));
+//   } else {
+//     cleanChildNodes(cards);
+//     refreshDataOnInputChange(searchCondition);
+//   }
+// });
 const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -177,7 +182,7 @@ searchButton.addEventListener("click", (e) => {
   const searchCondition = document.getElementById("search-input").value;
   if (!searchCondition) {
     cleanChildNodes(cards);
-    refreshData((condition = ""));
+    refreshData();
   } else {
     cleanChildNodes(cards);
     refreshDataOnInputChange(searchCondition);
