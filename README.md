@@ -16,8 +16,8 @@ O bien descaga el contenido completo como un archivo zip haciendo click aquí.
 Se recomienda el uso de vscode con la extención live server para levantar el cliente.
 
 ## Funciones Principales
-El método "getProducts" rescata la información de los productos de forma dinámica en función de una "condición", la cual
-es entregado como argumento.
+El método `getProducts` rescata la información de los productos de forma dinámica en función de una `condición`, la cual
+es entregada como argumento.
 ```
 const getProducts = async (condition = "") => {
   cleanChildNodes(cards);
@@ -35,9 +35,9 @@ const getProducts = async (condition = "") => {
     });
 };
 ```
-El método "getProductsOnInputChange" rescata la información de los productos de forma dinámica en función de una "condición", la cual
-es entregada como argumento a la función. Ahora bien, tal condición es un string que luego es envíado al back end para generar una búsqueda productos con su
-respectiva coincidencia de haber alguna, sino se retorna un error.
+El método `getProductsOnInputChange` rescata la información de los productos de forma dinámica en función de una `condición`, la cual
+es entregada como argumento a la función. Ahora bien, tal condición es un `string` que luego es envíado al back end para generar una búsqueda de productos
+ Tal búsqueda puede retornar una coincidencia de haber alguna, sino se retorna un error.
 ```
 const getProductsOnInputChange = async (searchInput = "") => {
   cleanChildNodes(cards);
@@ -54,7 +54,7 @@ const getProductsOnInputChange = async (searchInput = "") => {
     });
 };
 ```
-El retorno haber coincidencias sería un array con por lo menos un objeto con la siguiente estructura.
+El retorno haber coincidencias sería un array con al menos un objeto con la siguiente estructura.
 ```
 {name: "Pisco viejo",
 price: "1000",
@@ -62,8 +62,8 @@ discount: "200",
 url_image: "www.image.com/image"
 category: 1}
 ```
-Esta porción de código se encarga de inicializar un "event listener" en caso de que se haga click a una de las opciones de la navbar, para luego llamar 
-al metodo que refresca el contenido de la página en función del valor de la condición definida como "categoryCondition", la cual obtiene su valor del
+Esta porción de código se encarga de inicializar un `event listener` que esté al pendiente de cuando se haga click en una de las opciones de la navbar, para luego llamar 
+al método que refresca el contenido de la página en función del valor de la condición definida como `categoryCondition`, la cual obtiene su valor del
 "target" del evento.
 ```
 const navItems = document.querySelectorAll(".nav-link");
@@ -77,7 +77,7 @@ navItems.forEach((navItem) => {
   });
 });
 ```
-Esta función se encarga de refrescar el contenido de la página a la vez que inserta una animación de carga mientras se realiza la consulta http por medio de la función getProducts, 
+Esta función se encarga de refrescar el contenido de la página a la vez que inserta una animación de carga mientras se realiza la consulta http por medio de la función `getProducts`, 
 entonces en su resolución satisfactoria el contenido de la página se actualiza, y, en caso contrario se envía un mensaje de error.
 ```
 const refreshData = (condition) => {
@@ -139,8 +139,8 @@ const refreshDataOnInputChange = (searchCondition) => {
   });
 };
 ```
-Por último tenemos esta pieza de código tiene como finalidad inicializar la "template" de los productos que ya está presente en el index.html, con el contenido inicial de la
-página, es decir, todos los productos sin filtrar, por eso se parece mucho a las funciones "refresh" que ya vimos.
+Por último tenemos esta pieza de código la cual tiene como finalidad inicializar la `template` de los productos que ya está presente en el `index.html`, con el contenido inicial de la
+página, es decir, todos los productos sin filtrar. Cabe decir, que por el motivo anterior este se parece mucho a las funciones "refresh" que ya vimos anteriormente .
 ```
 const cards = document.getElementById("catalog-section");
 const template = document.getElementById("template-card").content;
